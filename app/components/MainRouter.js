@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Main from "./Main/Main";
+import Nav from "./children/Nav/Nav";
+import Example from "./Example/Example";
 
-export default class MainRouter extends Component {
-  render() {
-    return (
-      <Router>
-      	<Route exact path="/" component={Main} />
-      </Router>
-    );
-  }
-}
+const MainRouter = () =>
+  <Router>
+    <div>
+      <Nav />
+      <Route exact path="/" component={Main} />
+      <Route exact path="/example" component={Example} />
+    </div>
+  </Router>;
+
+export default MainRouter;
